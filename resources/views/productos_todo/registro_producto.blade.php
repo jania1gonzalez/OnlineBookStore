@@ -61,7 +61,7 @@
     </section>
     
 
-    {{ <form action="/producto" method="POST">
+    {{<form action="/producto" method="POST">
         < Esta es una ruta absoluta para el store {{ route('producto.store') }}>
 
         @csrf

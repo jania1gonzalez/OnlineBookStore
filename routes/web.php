@@ -25,6 +25,8 @@ Route::get('/', function () {
 });
 
 
+
+
 // Route::get('/registro_producto', function (){
 //     return view('/productos_todo/registro_producto');
 // });
@@ -47,13 +49,14 @@ Route::resource('pedido', PedidoController::class);
 
 
 Route::get('/producto/{id}', [ProductoController::class, 'detalle'])->name('producto.detalle');
-Route::post('/agregar-al-carrito/{id}', [CartController::class, 'agregarAlCarrito'])->name('agregar-al-carrito');
+Route::post('/agregar-al-carrito/{id}', [CartController::class, 'store'])->name('agregar-al-carrito.store');
 Route::get('/carrito', [CartController::class, 'mostrarCarrito'])->name('carrito.mostrar');
 Route::resource('pedidos', PedidoController::class)->only(['store']);
 Route::get('/mostrar-pedidos', [PedidoController::class, 'mostrarPedidos'])->name('pedidos.mostrar');
 Route::post('/marcar-recogido/{pedidoId}', [PedidoController::class, 'marcarRecogido'])->name('pedidos.marcarRecogido');
 Route::get('/pedidos/{pedido}/detalle', [PedidoController::class, 'mostrarDetalle'])->name('pedidos.detalle');
 Route::get('/pedidos/{pedido}/detalleR', [PedidoController::class, 'mostrarDetalleR'])->name('pedidos.detalleR');
+
 
 
 
